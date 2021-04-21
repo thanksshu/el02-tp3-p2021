@@ -33,8 +33,9 @@ if __name__ == '__main__':
 
     # U
     ax_u = ax_p.twinx()
+    ax_u._get_lines.prop_cycler = ax_p._get_lines.prop_cycler
     line_u = ax_u.plot(
-        result[0].signal, result[1].signal, label='U', color='purple')
+        result[0].signal, result[1].signal, label='U')
     ax_u.legend(bbox_to_anchor=(0, 1, 1, 1), loc='lower right')
     ax_u.grid(True)
     ax_u.set_xlabel('Temps (s)')
@@ -47,7 +48,7 @@ if __name__ == '__main__':
     print(f'valeur eff Itot {libprepa.get_eff(result[2].signal)}')
     print(f'valeur eff Ic {libprepa.get_eff(result[3].signal)}')
     print(f'valeur eff Irl {libprepa.get_eff(result[4].signal)}')
-    
+
     print(f'valeur eff Ptot {libprepa.get_eff(p_tot)}')
     print(f'valeur eff Prl {libprepa.get_eff(p_rl)}')
     print(f'valeur eff Pc {libprepa.get_eff(p_c)}')

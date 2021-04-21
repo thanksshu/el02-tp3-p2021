@@ -18,7 +18,7 @@ if __name__ == '__main__':
     # U
     ax_u = fig.add_subplot()
     line_u, = ax_u.plot(
-        result[0].signal, result[1].signal, label='U', color='purple')
+        result[0].signal, result[1].signal, label='U')
     ax_u.legend(bbox_to_anchor=(0, 1, 1, 1), loc='lower left')
     ax_u.grid(True)
     ax_u.set_xlabel('Temps (s)')
@@ -26,6 +26,7 @@ if __name__ == '__main__':
 
     # I
     ax_i = ax_u.twinx()
+    ax_i._get_lines.prop_cycler = ax_u._get_lines.prop_cycler
     line_i_tot, = ax_i.plot(result[0].signal, result[2].signal, label='Itot')
     line_i_tot_p, = ax_i.plot(
         result[0].signal, result[3].signal, label='Itot\'')
